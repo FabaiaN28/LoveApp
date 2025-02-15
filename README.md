@@ -5,144 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi amor, esta es para ti</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            color: white;
-            overflow-x: hidden;
-            transition: background-color 0.5s;
-        }
-        h1, h2, p {
-            text-align: center;
-            animation: fadeIn 2s;
-        }
-        h1 {
-            font-size: 3em;
-            margin-top: 50px;
-            color: #fff8f8;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-        }
-        .button {
-            background-color: #ff5f7f;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: transform 0.3s, background-color 0.3s;
-            margin-top: 20px;
-        }
-        .button:hover {
-            transform: scale(1.1);
-            background-color: #ff7eb3;
-        }
-        .album-container, .reasons-container, .calendar-container, .box-container, .game-container {
-            display: none;
-            text-align: center;
-        }
-        .photo-gallery img {
-            width: 150px;
-            height: 150px;
-            margin: 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .photo-gallery img:hover {
-            transform: scale(1.1);
-        }
-        .reason {
-            margin: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: inline-block;
-        }
-        .reason img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-        .modal, .calendar-modal, .box-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-        .modal-content, .calendar-content, .box-content {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .modal img, .calendar img {
-            width: 100%;
-            height: auto;
-        }
-        .modal .close, .calendar .close, .box .close {
-            color: #fff;
-            font-size: 2em;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-        .music-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #ff7eb3;
-            border: none;
-            padding: 10px 15px;
-            color: white;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .light-dark-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .light-dark-btn:hover {
-            background-color: #555;
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        /* Modo oscuro */
-        body.dark-mode {
-            background: #333;
-            color: #f1f1f1;
-        }
-        /* Modo claro */
-        body.light-mode {
-            background: #ff758c;
-            color: #333;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+    --bg-light: #ffe6f2;
+    --bg-dark: #1a1a2e;
+    --text-light: #000;
+    --text-dark: #fff;
+    --card-light: rgba(255, 255, 255, 0.8);
+    --card-dark: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+h1, h2, p {
+    text-align: center;
+    animation: fadeIn 2s;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin-top: 50px;
+    color: #fff8f8;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px;
+}
+
+.card {
+    background: var(--card-light);
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .card {
+    background: var(--card-dark);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.button {
+    background-color: #ff5f7f;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 20px;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background-color: #ff7eb3;
+}
+
+.album-container, .reasons-container, .calendar-container, .box-container, .game-container {
+    display: none;
+    text-align: center;
+}
+
+.photo-gallery img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.1);
+}
+
+.reason {
+    margin: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.reason img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.modal, .calendar-modal, .box-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.modal-content, .calendar-content, .box-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal img, .calendar img {
+    width: 100%;
+    height: auto;
+}
+
+.modal .close, .calendar .close, .box .close {
+    color: #fff;
+    font-size: 2em;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #ff7eb3;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.light-dark-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.light-dark-btn:hover {
+    background-color: #555;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* Modo claro */
+body.light-mode {
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+
+.toggle-mode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff5f7f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
     </style>
 </head>
 <body>
