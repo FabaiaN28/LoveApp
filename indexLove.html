@@ -20,7 +20,8 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    /* background: linear-gradient(135deg, #ff758c, #ff7eb3); */
+    background: linear-gradient(135deg,rgb(117, 255, 163),rgb(255, 180, 126));
     color: white;
     overflow-x: hidden;
     transition: all 0.3s ease; /* Transición para el cambio de tema */
@@ -395,9 +396,9 @@ body.light-mode {
     <div class="album-container">
         <h2>Recuerdos Juntos</h2>
         <div class="photo-gallery">
-            <img src="https://via.placeholder.com/150" alt="Imagen 1" onclick="openModal('Recuerdo 1')">
-            <img src="https://via.placeholder.com/150" alt="Imagen 2" onclick="openModal('Recuerdo 2')">
-            <img src="https://via.placeholder.com/150" alt="Imagen 3" onclick="openModal('Recuerdo 3')">
+            <img src="./img/ft1.jpg" alt="Imagen 1" onclick="openModal('Recuerdo 1')">
+            <img src="./img/ft2.jpg" alt="Imagen 2" onclick="openModal('Recuerdo 2')">
+            <img src="./img/ft3.jpg" alt="Imagen 3" onclick="openModal('Recuerdo 3')">
         </div>
     </div>
 
@@ -405,11 +406,11 @@ body.light-mode {
     <div class="reasons-container">
         <h2>Razones por las que te amo</h2>
         <div class="reason">
-            <img src="https://via.placeholder.com/50" alt="Razón 1">
+            <img src="./img/ft4.jpg" alt="Razón 1">
             <p>Me haces sentir feliz incluso en los días más grises.</p>
         </div>
         <div class="reason">
-            <img src="https://via.placeholder.com/50" alt="Razón 2">
+            <img src="./img/ft5.jpg" alt="Razón 2">
             <p>Tu sonrisa ilumina mi mundo.</p>
         </div>
     </div>
@@ -478,7 +479,7 @@ body.light-mode {
     <div id="surprise" style="display:none;">
         <h2>Tu sorpresa:</h2>
         <p>Te amo mucho, mi vida. Cada día a tu lado es un regalo. 💖</p>
-        <img id="surpriseImage" src="https://via.placeholder.com/300" alt="Imagen sorpresa" />
+        <img id="surpriseImage" src="./img/ft7.jpg" alt="Imagen sorpresa" />
     </div>
 </div>
 
