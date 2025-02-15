@@ -203,6 +203,7 @@
         <button onclick="checkAnswer('question1', 'Restaurante')">En el restaurante</button>
         <button onclick="checkAnswer('question1', 'Cine')">En el cine</button>
         <button onclick="giveHint('question1')">Pista</button>
+        <div id="hint1" style="display:none; color: green;">Es un lugar al aire libre donde pasamos mucho tiempo.</div>
     </div>
 
     <div id="question2" style="display:none;">
@@ -211,6 +212,7 @@
         <button onclick="checkAnswer('question2', 'Shape of You')">Shape of You</button>
         <button onclick="checkAnswer('question2', 'La Vie en Rose')">La Vie en Rose</button>
         <button onclick="giveHint('question2')">Pista</button>
+        <div id="hint2" style="display:none; color: green;">Es una canción romántica de Ed Sheeran.</div>
     </div>
 
     <div id="question3" style="display:none;">
@@ -219,6 +221,7 @@
         <button onclick="checkAnswer('question3', 'Tokio')">Tokio</button>
         <button onclick="checkAnswer('question3', 'Roma')">Roma</button>
         <button onclick="giveHint('question3')">Pista</button>
+        <div id="hint3" style="display:none; color: green;">Es la ciudad del amor.</div>
     </div>
 
     <div id="question4" style="display:none;">
@@ -227,6 +230,7 @@
         <button onclick="checkAnswer('question4', 'Un gato')">Un gato</button>
         <button onclick="checkAnswer('question4', 'Un elefante')">Un elefante</button>
         <button onclick="giveHint('question4')">Pista</button>
+        <div id="hint4" style="display:none; color: green;">Es un animal amigable que siempre está feliz.</div>
     </div>
 
     <div id="endGame" style="display:none;">
@@ -238,7 +242,7 @@
     <div id="surprise" style="display:none;">
         <h2>Tu sorpresa:</h2>
         <p>Te amo mucho, mi vida. Cada día a tu lado es un regalo. 💖</p>
-        <img src="https://via.placeholder.com/300" alt="Imagen sorpresa" />
+        <img id="surpriseImage" src="https://via.placeholder.com/300" alt="Imagen sorpresa" />
     </div>
 </div>
 
@@ -259,6 +263,8 @@
             'question4': 'endGame'
         };
 
+        const hintId = `hint${questionId.charAt(questionId.length - 1)}`;
+        
         if (answer === correctAnswers[questionId]) {
             alert('¡Respuesta correcta! <3');
             document.getElementById(questionId).style.display = 'none';
@@ -270,19 +276,14 @@
 
     // Función para mostrar las pistas
     function giveHint(questionId) {
-        const hints = {
-            'question1': 'Es un lugar al aire libre donde pasamos mucho tiempo.',
-            'question2': 'Es una canción romántica de Ed Sheeran.',
-            'question3': 'Es la ciudad del amor.',
-            'question4': 'Es un animal amigable que siempre está feliz.'
-        };
-
-        alert(hints[questionId]);
+        const hint = document.getElementById(`hint${questionId.charAt(questionId.length - 1)}`);
+        hint.style.display = 'block';
     }
 
     // Función para mostrar la sorpresa final
     function showSurprise() {
         document.getElementById('surprise').style.display = 'block';
+        document.getElementById('surpriseImage').src = 'https://via.placeholder.com/600x400';  // Aquí puedes poner la imagen personalizada que desees
     }
 </script>
 
