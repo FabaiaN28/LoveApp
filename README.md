@@ -7,7 +7,7 @@
     <meta name="keywords" content="amor, pareja, galería de fotos, música, juego, test de compatibilidad, cartas de amor">
     <title>Mi Amor Para Ti, Alexa</title>
     <style>
-        /* Estilos generales */
+/* Estilos generales */
         body {
             font-family: 'Arial', sans-serif; /* Cambia la fuente a una más moderna */
             background-color: #f8f8f8; /* Un fondo más suave */
@@ -160,7 +160,7 @@
                 <img src="foto1.jpg" alt="Momento especial 1">
                 <img src="foto2.jpg" alt="Momento especial 2">
                 <img src="foto3.jpg" alt="Momento especial 3">
-                </div>
+            </div>
         </section>
 
         <section id="timeline">
@@ -174,13 +174,18 @@
                     <h3>Primer Viaje Juntos</h3>
                     <p>El 20 de agosto de 2024, viajamos a la playa por primera vez.</p>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section id="test">
             <h2>Test de Compatibilidad</h2>
             <p>¡Vamos a descubrir cuánto nos conocemos!</p>
-            <button onclick="alert('Responde a todas las preguntas con amor :)')">Comenzar Test</button>
+            <button onclick="mostrarTest()">Comenzar Test</button>
+            <div id="test-content" style="display:none;">
+                <p>Pregunta 1: ¿Cuál es mi color favorito?</p>
+                <input type="text" placeholder="Tu respuesta">
+                <button onclick="alert('Enviar respuesta')">Enviar</button>
+            </div>
         </section>
 
         <section id="music">
@@ -193,19 +198,44 @@
 
         <section id="game">
             <h2>Un Juego para Nosotros</h2>
-            <button onclick="alert('¡Haz clic y diviértete!')">Jugar</button>
+            <button onclick="mostrarJuego()">Jugar</button>
+            <div id="game-content" style="display:none;">
+                <p>¡Adivina la palabra!</p>
+                <input type="text" placeholder="Tu respuesta">
+                <button onclick="alert('Enviar respuesta')">Enviar</button>
+            </div>
         </section>
 
         <section id="calendar">
             <h2>Calendario de Fechas Especiales</h2>
             <p>Aquí puedes ver y agregar recordatorios de nuestros momentos especiales.</p>
-            <button onclick="alert('Añadir evento especial')">Añadir Evento</button>
+            <button onclick="mostrarCalendario()">Añadir Evento</button>
+            <div id="calendar-content" style="display:none;">
+                <p>Añadir evento:</p>
+                <input type="text" placeholder="Nombre del evento">
+                <input type="date">
+                <button onclick="alert('Guardar evento')">Guardar</button>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>Creado con ❤️ para ti, Alexa.</p>
     </footer>
+
+    <script>
+        function mostrarTest() {
+            document.getElementById('test-content').style.display = 'block';
+        }
+
+        function mostrarJuego() {
+            document.getElementById('game-content').style.display = 'block';
+        }
+
+        function mostrarCalendario() {
+            document.getElementById('calendar-content').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
