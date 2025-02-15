@@ -1,65 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>LoveApp</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  font-family: sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página web interactiva llena de amor para mi novia, con fotos, música, juegos y más.">
+    <meta name="keywords" content="amor, pareja, galería de fotos, música, juego, test de compatibilidad, cartas de amor">
+    <title>Mi Amor Para Ti, Alexa</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #fffbf3;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-.heart {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  transform: rotate(-45deg);
-  position: relative;
-}
+        /* Animación de bienvenida */
+        .welcome-message {
+            background-color: #e84d87;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            font-size: 2em;
+            animation: fadeIn 2s ease-out;
+        }
 
-.heart::before,
-.heart::after {
-  content: "";
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-  top: -50px;
-  left: 0;
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
-.heart::after {
-  left: 50px;
-}
+        /* Header */
+        header {
+            background-color: #e84d87;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
 
-h1 {
-  color: #333;
-  margin-top: 20px;
-}
+        header h1 {
+            font-size: 2.5em;
+        }
 
-p {
-  color: #666;
-  text-align: center;
-  margin-top: 10px;
-}
-</style>
+        nav ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #ffb6c1;
+        }
+
+        /* Secciones */
+        section {
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        section h2 {
+            color: #e84d87;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .timeline-item {
+            background-color: #f8e1e1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            width: 80%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Test de compatibilidad */
+        .compatibility-test {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffebf1;
+            border-radius: 10px;
+        }
+
+        /* Reproductor de música */
+        .music-player {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+
+        /* Juegos interactivos */
+        .game {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Calendario de amor */
+        .calendar {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e84d87;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery img {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <div class="heart"></div>
-  <h1>LoveApp</h1>
-  <p>¡Comparte el amor con el mundo!</p>
-</div>
+
+    <!-- Pantalla de bienvenida -->
+    <div class="welcome-message">
+        <p>Bienvenida, Alexa. Esta página está hecha con todo mi amor para ti.</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Mi Amor Para Ti</h1>
+        <nav>
+            <ul>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#timeline">Nuestra Historia</a></li>
+                <li><a href="#test">Test de Compatibilidad</a></li>
+                <li><a href="#music">Música</a></li>
+                <li><a href="#game">Juego</a></li>
+                <li><a href="#calendar">Calendario</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Galería de fotos -->
+    <section id="gallery">
+        <h2>Nuestros Mejores Momentos</h2>
+        <div class="gallery">
+            <img src="foto1.jpg" alt="Momento especial 1">
+            <img src="foto2.jpg" alt="Momento especial 2">
+            <img src="foto3.jpg" alt="Momento especial 3">
+        </div>
+    </section>
+
+    <!-- Timeline de nuestra relación -->
+    <section id="timeline">
+        <h2>Nuestra Historia</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Primer Encuentro</h3>
+                <p>El 14 de febrero de 2024, nuestra historia comenzó...</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Primer Viaje Juntos</h3>
+                <p>El 20 de agosto de 2024, viajamos a la playa por primera vez.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test de Compatibilidad -->
+    <section id="test" class="compatibility-test">
+        <h2>Test de Compatibilidad</h2>
+        <p>¡Vamos a descubrir cuánto nos conocemos!</p>
+        <button onclick="alert('Responde a todas las preguntas con amor :)')">Comenzar Test</button>
+    </section>
+
+    <!-- Reproductor de Música -->
+    <section id="music" class="music-player">
+        <h2>Nuestra Canción</h2>
+        <audio controls>
+            <source src="nuestra-cancion.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </section>
+
+    <!-- Juego Interactivo -->
+    <section id="game" class="game">
+        <h2>Un Juego para Nosotros</h2>
+        <button onclick="alert('¡Haz clic y diviértete!')">Jugar</button>
+    </section>
+
+    <!-- Calendario de Amor -->
+    <section id="calendar" class="calendar">
+        <h2>Calendario de Fechas Especiales</h2>
+        <p>Aquí puedes ver y agregar recordatorios de nuestros momentos especiales.</p>
+        <button onclick="alert('Añadir evento especial')">Añadir Evento</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Creado con ❤️ para ti, Alexa.</p>
+    </footer>
+
 </body>
 </html>
