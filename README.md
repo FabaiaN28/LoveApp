@@ -192,13 +192,100 @@
         <button onclick="openBoxModal()">¡Abrir caja!</button>
     </div>
 
-    <!-- Juego interactivo -->
-    <div class="game-container">
-        <h2>Juego sobre nuestra relación</h2>
-        <p>¿Dónde fue nuestra primera cita?</p>
-        <button onclick="alert('¡Correcto!')">En el parque</button>
-        <button onclick="alert('¡Incorrecto!')">En la playa</button>
+<!-- Juego interactivo mejorado -->
+<div class="game-container">
+    <h2>¡Un juego sobre nosotros!</h2>
+    <p>¿Cuánto recuerdas sobre nuestra relación? Responde las preguntas con cariño. <3</p>
+    
+    <div id="question1">
+        <p><strong>Pregunta 1:</strong> ¿Dónde fue nuestra primera cita?</p>
+        <button onclick="checkAnswer('question1', 'Parque')">En el parque</button>
+        <button onclick="checkAnswer('question1', 'Restaurante')">En el restaurante</button>
+        <button onclick="checkAnswer('question1', 'Cine')">En el cine</button>
+        <button onclick="giveHint('question1')">Pista</button>
     </div>
+
+    <div id="question2" style="display:none;">
+        <p><strong>Pregunta 2:</strong> ¿Qué canción bailamos en nuestra primera cita?</p>
+        <button onclick="checkAnswer('question2', 'Perfect de Ed Sheeran')">Perfect de Ed Sheeran</button>
+        <button onclick="checkAnswer('question2', 'Shape of You')">Shape of You</button>
+        <button onclick="checkAnswer('question2', 'La Vie en Rose')">La Vie en Rose</button>
+        <button onclick="giveHint('question2')">Pista</button>
+    </div>
+
+    <div id="question3" style="display:none;">
+        <p><strong>Pregunta 3:</strong> ¿Cuál es el lugar que soñamos visitar juntos?</p>
+        <button onclick="checkAnswer('question3', 'París')">París</button>
+        <button onclick="checkAnswer('question3', 'Tokio')">Tokio</button>
+        <button onclick="checkAnswer('question3', 'Roma')">Roma</button>
+        <button onclick="giveHint('question3')">Pista</button>
+    </div>
+
+    <div id="question4" style="display:none;">
+        <p><strong>Pregunta 4:</strong> ¿Qué animal te recuerda a mí cuando te cuento historias divertidas?</p>
+        <button onclick="checkAnswer('question4', 'Un perro')">Un perro</button>
+        <button onclick="checkAnswer('question4', 'Un gato')">Un gato</button>
+        <button onclick="checkAnswer('question4', 'Un elefante')">Un elefante</button>
+        <button onclick="giveHint('question4')">Pista</button>
+    </div>
+
+    <div id="endGame" style="display:none;">
+        <h3>¡Felicidades, has completado el juego!</h3>
+        <p>Ahora sabes cuánto nos conocemos. <3</p>
+        <button onclick="showSurprise()">¡Abre tu sorpresa!</button>
+    </div>
+    
+    <div id="surprise" style="display:none;">
+        <h2>Tu sorpresa:</h2>
+        <p>Te amo mucho, mi vida. Cada día a tu lado es un regalo. 💖</p>
+        <img src="https://via.placeholder.com/300" alt="Imagen sorpresa" />
+    </div>
+</div>
+
+<script>
+    // Función para verificar la respuesta
+    function checkAnswer(questionId, answer) {
+        const correctAnswers = {
+            'question1': 'Parque',
+            'question2': 'Perfect de Ed Sheeran',
+            'question3': 'París',
+            'question4': 'Un perro'
+        };
+
+        const nextQuestion = {
+            'question1': 'question2',
+            'question2': 'question3',
+            'question3': 'question4',
+            'question4': 'endGame'
+        };
+
+        if (answer === correctAnswers[questionId]) {
+            alert('¡Respuesta correcta! <3');
+            document.getElementById(questionId).style.display = 'none';
+            document.getElementById(nextQuestion[questionId]).style.display = 'block';
+        } else {
+            alert('Respuesta incorrecta, inténtalo de nuevo.');
+        }
+    }
+
+    // Función para mostrar las pistas
+    function giveHint(questionId) {
+        const hints = {
+            'question1': 'Es un lugar al aire libre donde pasamos mucho tiempo.',
+            'question2': 'Es una canción romántica de Ed Sheeran.',
+            'question3': 'Es la ciudad del amor.',
+            'question4': 'Es un animal amigable que siempre está feliz.'
+        };
+
+        alert(hints[questionId]);
+    }
+
+    // Función para mostrar la sorpresa final
+    function showSurprise() {
+        document.getElementById('surprise').style.display = 'block';
+    }
+</script>
+
 
     <!-- Modal para fotos -->
     <div class="modal" id="modal">
