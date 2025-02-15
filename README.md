@@ -1,4 +1,3 @@
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +5,167 @@
     <title>Mi amor, esta es para ti</title>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+    --bg-light: #ffe6f2;
+    --bg-dark: #1a1a2e;
+    --text-light: #000;
+    --text-dark: #fff;
+    --card-light: rgba(255, 255, 255, 0.8);
+    --card-dark: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow-x: hidden;
+    transition: all 0.3s ease; /* Transición para el cambio de tema */
+}
+
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+h1, h2, p {
+    text-align: center;
+    animation: fadeIn 2s; /* Animación existente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra de texto */
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin-top: 50px;
+    color: #fff8f8;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Sombra de texto */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px;
+}
+
+.card {
+    background: var(--card-light);
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transiciones adicionales */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+}
+
+body.dark-mode .card {
+    background: var(--card-dark);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+.button {
+    background-color: #ff5f7f;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s; /* Transiciones existentes */
+    margin-top: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra al botón */
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background-color: #ff7eb3;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+}
+
+.album-container, .reasons-container, .calendar-container, .box-container, .game-container {
+    display: none;
+    text-align: center;
+}
+
+.photo-gallery img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s ease; /* Transición y sombra para las imágenes */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+}
+
+.reason {
+    margin: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones para los reasons */
+}
+
+.reason:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.reason img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* ... (resto del CSS) */
+
+.music-btn, .light-dark-btn, .toggle-mode { /* Estilos comunes para los botones */
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.music-btn:hover, .light-dark-btn:hover, .toggle-mode:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .card {
+        width: 90%; /* Ajusta el ancho de las tarjetas en pantallas pequeñas */
+        margin: 20px 0; /* Margen superior e inferior en pantallas pequeñas */
+    }
+    .container {
+        padding: 20px; /* Reduce el padding en pantallas pequeñas */
+    }
+}
+
+/* Cursores personalizados (ejemplos) */
+.button {
+    cursor: pointer; /* Cursor de puntero en los botones */
+}
+
+.photo-gallery img {
+    cursor: zoom-in; /* Cursor de zoom en las imágenes */
+}
+
+.modal .close, .calendar .close, .box .close {
+    cursor: crosshair; /* Otro cursor para los botones de cerrar */
+}
 
 :root {
     --bg-light: #ffe6f2;
@@ -442,4 +602,3 @@ body.light-mode {
 
 </body>
 </html>
- 
