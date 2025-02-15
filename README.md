@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -599,6 +600,12 @@ body.light-mode {
             }
         }
     </script>
+    <script>
+        document.getElementById("discoverBtn").addEventListener("click", function() {
+            this.style.display = "none"; // Oculta el botón al hacer clic
+        });
+    </script>
+    
 
 </body>
 </html>
