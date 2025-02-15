@@ -7,190 +7,138 @@
     <meta name="keywords" content="amor, pareja, galería de fotos, música, juego, test de compatibilidad, cartas de amor">
     <title>Mi Amor Para Ti, Alexa</title>
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Estilos generales */
         body {
-            font-family: 'Verdana', sans-serif;
-            background-color: #fffbf3;
+            font-family: 'Arial', sans-serif; /* Cambia la fuente a una más moderna */
+            background-color: #f8f8f8; /* Un fondo más suave */
             color: #333;
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Asegura que el footer se pegue al fondo */
         }
 
-        /* Animación de bienvenida */
-        .welcome-message {
-            background-color: #e84d87;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            font-size: 2em;
-            animation: fadeIn 2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Header */
+        /* Encabezado */
         header {
-            background-color: #e84d87;
+            background-color: #e91e63; /* Rosa más vibrante */
             color: white;
+            padding: 20px;
             text-align: center;
-            padding: 20px 0;
         }
 
         header h1 {
             font-size: 2.5em;
+            margin-bottom: 10px;
         }
 
         nav ul {
             list-style: none;
-            margin: 20px 0;
+            padding: 0;
+            margin: 0;
         }
 
-        nav ul li {
+        nav li {
             display: inline-block;
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
-            font-size: 1.2em;
             font-weight: bold;
-            text-transform: uppercase;
+            padding: 8px 12px; /* Añade padding para mejor clickeabilidad */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s; /* Transición suave */
         }
 
-        nav ul li a:hover {
-            color: #ffb6c1;
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Rosa más claro al pasar el ratón */
         }
 
-        /* Secciones */
+        /* Contenido principal */
+        main {
+            padding: 20px;
+            flex: 1; /* El contenido principal ocupa el espacio disponible */
+        }
+
         section {
-            padding: 40px;
-            margin-top: 30px;
+            margin-bottom: 30px;
+            background-color: white; /* Fondo blanco para las secciones */
+            padding: 20px;
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
         }
 
         section h2 {
-            color: #e84d87;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            color: #e91e63;
+            font-size: 2em;
+            margin-bottom: 15px;
             text-align: center;
+        }
+
+        /* Galería */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Diseño de galería responsivo */
+            gap: 15px;
         }
 
         .gallery img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            object-fit: cover; /* Para que las imágenes cubran el contenedor */
         }
 
         .gallery img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         /* Timeline */
         .timeline {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
+            gap: 20px;
         }
 
         .timeline-item {
-            background-color: #f8e1e1;
-            border-radius: 10px;
+            background-color: #f5f5f5;
             padding: 20px;
-            margin: 10px 0;
-            width: 80%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Test de compatibilidad */
-        .compatibility-test {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #ffebf1;
-            border-radius: 10px;
-        }
-
-        /* Reproductor de música */
-        .music-player {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        audio {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 5px;
-        }
-
-        /* Juegos interactivos */
-        .game {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* Calendario de amor */
-        .calendar {
-            margin-top: 30px;
-            text-align: center;
+        .timeline-item h3 {
+            margin-bottom: 10px;
+            color: #e91e63;
         }
 
         /* Footer */
         footer {
-            background-color: #e84d87;
+            background-color: #e91e63;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 15px;
+            margin-top: 20px; /* Espacio arriba del footer */
         }
 
-        /* Responsividad */
+        /* Estilos para dispositivos móviles */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
+            nav li {
+                display: block; /* Navegación en vertical */
+                margin: 10px 0;
             }
 
-            nav ul li {
-                margin: 0 10px;
-            }
-
-            section h2 {
-                font-size: 2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery img {
-                width: 100%;
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Galería más compacta */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Pantalla de bienvenida -->
-    <div class="welcome-message">
-        <p>Bienvenida, Alexa. Esta página está hecha con todo mi amor para ti.</p>
-    </div>
-
-    <!-- Header -->
     <header>
         <h1>Mi Amor Para Ti</h1>
         <nav>
@@ -205,61 +153,56 @@
         </nav>
     </header>
 
-    <!-- Galería de fotos -->
-    <section id="gallery">
-        <h2>Nuestros Mejores Momentos</h2>
-        <div class="gallery">
-            <img src="foto1.jpg" alt="Momento especial 1">
-            <img src="foto2.jpg" alt="Momento especial 2">
-            <img src="foto3.jpg" alt="Momento especial 3">
-        </div>
-    </section>
+    <main>
+        <section id="gallery">
+            <h2>Nuestros Mejores Momentos</h2>
+            <div class="gallery">
+                <img src="foto1.jpg" alt="Momento especial 1">
+                <img src="foto2.jpg" alt="Momento especial 2">
+                <img src="foto3.jpg" alt="Momento especial 3">
+                </div>
+        </section>
 
-    <!-- Timeline de nuestra relación -->
-    <section id="timeline">
-        <h2>Nuestra Historia</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Primer Encuentro</h3>
-                <p>El 14 de febrero de 2024, nuestra historia comenzó...</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Primer Viaje Juntos</h3>
-                <p>El 20 de agosto de 2024, viajamos a la playa por primera vez.</p>
-            </div>
-        </div>
-    </section>
+        <section id="timeline">
+            <h2>Nuestra Historia</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Primer Encuentro</h3>
+                    <p>El 14 de febrero de 2024, nuestra historia comenzó...</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Primer Viaje Juntos</h3>
+                    <p>El 20 de agosto de 2024, viajamos a la playa por primera vez.</p>
+                </div>
+                </div>
+        </section>
 
-    <!-- Test de Compatibilidad -->
-    <section id="test" class="compatibility-test">
-        <h2>Test de Compatibilidad</h2>
-        <p>¡Vamos a descubrir cuánto nos conocemos!</p>
-        <button onclick="alert('Responde a todas las preguntas con amor :)')">Comenzar Test</button>
-    </section>
+        <section id="test">
+            <h2>Test de Compatibilidad</h2>
+            <p>¡Vamos a descubrir cuánto nos conocemos!</p>
+            <button onclick="alert('Responde a todas las preguntas con amor :)')">Comenzar Test</button>
+        </section>
 
-    <!-- Reproductor de Música -->
-    <section id="music" class="music-player">
-        <h2>Nuestra Canción</h2>
-        <audio controls>
-            <source src="nuestra-cancion.mp3" type="audio/mp3">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-    </section>
+        <section id="music">
+            <h2>Nuestra Canción</h2>
+            <audio controls>
+                <source src="nuestra-cancion.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </section>
 
-    <!-- Juego Interactivo -->
-    <section id="game" class="game">
-        <h2>Un Juego para Nosotros</h2>
-        <button onclick="alert('¡Haz clic y diviértete!')">Jugar</button>
-    </section>
+        <section id="game">
+            <h2>Un Juego para Nosotros</h2>
+            <button onclick="alert('¡Haz clic y diviértete!')">Jugar</button>
+        </section>
 
-    <!-- Calendario de Amor -->
-    <section id="calendar" class="calendar">
-        <h2>Calendario de Fechas Especiales</h2>
-        <p>Aquí puedes ver y agregar recordatorios de nuestros momentos especiales.</p>
-        <button onclick="alert('Añadir evento especial')">Añadir Evento</button>
-    </section>
+        <section id="calendar">
+            <h2>Calendario de Fechas Especiales</h2>
+            <p>Aquí puedes ver y agregar recordatorios de nuestros momentos especiales.</p>
+            <button onclick="alert('Añadir evento especial')">Añadir Evento</button>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
         <p>Creado con ❤️ para ti, Alexa.</p>
     </footer>
